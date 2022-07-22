@@ -48,7 +48,7 @@ pyscan = Pycoproc(Pycoproc.PYSCAN)
 
 # Connect to wifi
 wlan = WLAN(mode=WLAN.STA)
-wlan.connect(ssid='PI', auth=(WLAN.WPA2, 'PI123456'))
+wlan.connect(ssid='YOUR SSID', auth=(WLAN.WPA2, 'YOUR PASSWORD'))
 while not wlan.isconnected():
     machine.idle()
 time.sleep(1)
@@ -74,7 +74,6 @@ print(time.localtime())
 # print(rtc.now())
 a = rtc.synced()
 print('RTC is synced to "pool.ntp.org": ', a)
-
 
 
 #add your card UID here
@@ -113,8 +112,6 @@ def check_uid(uid, len):
 # United States = LoRa.US915
 lora = LoRa(mode=LoRa.LORAWAN, region=LoRa.US915)
 
-dev_eui = ubinascii.unhexlify('70b3d5499101f604')
-#dev_eui = ubinascii.unhexlify('9bfeeac22836d772')
 
 # Get device info
 print('\n')
@@ -129,10 +126,10 @@ for i in range(66,72):
     lora.remove_channel(i)
 
 # join a network using OTAA (Over the Air Activation)
-app_eui = ubinascii.unhexlify('f4cbb061308df442')
-app_key = ubinascii.unhexlify('d48c703d46eea0f9c34e176cd18ebeab')
+app_eui = ubinascii.unhexlify('YOUR app_eui')
+app_key = ubinascii.unhexlify('YOUR app_key')
 #uncomment to use LoRaWAN application provided dev_eui
-dev_eui = ubinascii.unhexlify('9bfeeac22836d772')  
+dev_eui = ubinascii.unhexlify('YOUR dev_eui')  
 #uncomment below to use LoRaWAN application provided dev_eui
 lora.join(activation=LoRa.OTAA, auth=(app_eui, app_eui, app_key), timeout=0)
 
