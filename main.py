@@ -1,12 +1,10 @@
-'''
-Simple Pyscan NFC / MiFare Classic Example
-Copyright (c) 2019, Pycom Limited.
-
-This example continuously sends a REQA for ISO14443A card type
-If a card is discovered, it will read the UID
-If DECODE_CARD = True, will attempt to authenticate with CARDkey
-If authentication succeeds will attempt to read sectors from the card
-'''
+# Copyright (c) 2020, Pycom Limited.
+#
+# This software is licensed under the GNU GPL version 3 or any
+# later version, with permitted additional terms. For more information
+# see the Pycom Licence v1.0 document supplied with this file, or
+# available at https://www.pycom.io/opensource/licensing
+# See https://docs.pycom.io for more information regarding library specif
 
 import machine
 import struct
